@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Avalon Institute</title>
-<meta name="description" content="San Francisco's home for serious intellectual and cultural life.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
 
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Avalon Institute</title>
+<meta content="San Francisco's home for serious intellectual and cultural life." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Cinzel:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --green-deep:    #0e1a14;
-    --green-mid:     #1a2e20;
-    --green-surface: #223829;
-    --green-muted:   #2e4d38;
-    --gold:          #c9a84c;
-    --gold-light:    #e2c97e;
-    --gold-dim:      #8a6e30;
+    --green-deep:    #141c12;
+    --green-mid:     #1d281a;
+    --green-surface: #263422;
+    --green-muted:   #2f412a;
+    --gold:          #d89a3a;
+    --gold-dim:      #9a6a1f;
     --blue:          #4a7fa5;
     --blue-light:    #6fa3c8;
     --cream:         #f0e8d6;
@@ -71,38 +69,57 @@
     gap: 4px;
   }
   .rule-double .rule-gold:first-child { opacity: 0.4; }
+  .rule-echelon { display: flex; align-items: center; gap: 0.75rem; }
+  .rule-echelon .rule-gold { flex: 1; }
+  .rule-echelon-mark { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.75rem; line-height: 1; flex-shrink: 0; }
 
-  .ornament-crow { display: flex; justify-content: center; margin: 2rem 0; }
-  .ornament-crow* svg { fill: var(--gold); opacity: 0.75; }
+  nav { padding: 1.5rem 2.5rem 0.5rem; display: flex; justify-content: flex-end; gap: 2.5rem; font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; position: relative; z-index: 1; }
+  nav::before { content: ''; position: absolute; top: 0.7rem; right: 0.7rem; width: 22px; height: 22px; border-top: 1px solid var(--gold-dim); border-right: 1px solid var(--gold-dim); pointer-events: none; }
+  body { position: relative; }
+  body::after { content: ''; position: absolute; bottom: 0.7rem; right: 0.7rem; width: 22px; height: 22px; border-bottom: 1px solid var(--gold-dim); border-right: 1px solid var(--gold-dim); pointer-events: none; z-index: 1; }
+  @media (max-width: 640px) { nav { padding: 1rem 1.25rem 0.5rem; gap: 1.5rem; font-size: 0.72rem; } }
+  nav a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+  nav a:hover { color: var(--cream); }
 
-  .ornament-laurel { display: flex; justify-content: center; align-items: center; gap: 1rem; margin: 1.5rem 0; color: var(--gold-dim); }
-  .ornament-laurel svg { fill: var(--gold-dim); flex-shrink: 0; }
-
-  nav { padding: 2rem 0 1.5rem; display: flex; justify-content: flex-end; gap: 2.5rem; font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
-  nav a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
-  nav a:hover { color: var(--gold); }
-
-  .masthead { padding: 3rem 0 2rem; text-align: center; }
-  .masthead-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1.25rem; }
+  .masthead { padding: 2.5rem 0 2rem; text-align: center; }
   .masthead h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; letter-spacing: 0.08em; color: var(--cream); line-height: 1.15; margin-bottom: 0.5rem; }
   .masthead h1 span { color: var(--gold); }
-  .masthead-sub { font-style: italic; color: var(--text-dim); font-size: 1.05rem; margin-top: 1rem; }
-
-  .hero { padding: 3rem 0; text-align: center; }
-  .hero-lede { font-size: clamp(1.2rem, 2.5vw, 1.6rem); line-height: 1.55; color: var(--cream); font-style: italic; max-width: 640px; margin: 0 auto 2rem; }
-  .hero-lede em { font-style: normal; color: var(--gold-light); }
+  .masthead-sub { color: var(--text-dim); font-size: 1.05rem; margin-top: 1rem; }
 
   section { padding: 3rem 0; }
+  .lead-in { font-variant: small-caps; letter-spacing: 0.04em; font-weight: 600; color: var(--gold-dim); margin-right: 0.15em; }
+
+  .intro-frame { max-width: 640px; margin: 2.5rem auto 1.5rem; text-align: center; font-style: italic; color: var(--text); font-size: 1.05rem; line-height: 1.55; }
+
+  .collage { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.35rem; margin: 1.5rem 0 3rem; }
+  .collage figure { position: relative; overflow: hidden; aspect-ratio: 1; margin: 0; background: var(--green-mid); }
+  .collage img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter 0.3s ease; }
+  .collage figure:hover img { transform: scale(1.04); }
+  .collage figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 0.8rem 0.9rem 0.7rem;
+    background: linear-gradient(to top, rgba(10,15,12,0.93) 0%, rgba(10,15,12,0.65) 55%, transparent 100%);
+    color: var(--cream);
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.14em;
+    text-transform: uppercase; line-height: 1.35;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .collage figure:hover figcaption { opacity: 1; transform: translateY(0); }
+  @media (max-width: 640px) { .collage { grid-template-columns: repeat(2, 1fr); gap: 0.3rem; } }
   .section-header { margin-bottom: 2rem; }
   .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
+  .section-title { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
   h2 { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 400; letter-spacing: 0.05em; color: var(--cream); line-height: 1.3; }
-  h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 0.75rem; text-transform: uppercase; }
+  h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.75rem; text-transform: uppercase; }
   p { margin-bottom: 1.2rem; color: var(--text); }
   p:last-child { margin-bottom: 0; }
   .drop-cap::first-letter { font-family: 'Cinzel', serif; font-size: 3.5em; line-height: 0.75; float: left; margin-right: 0.08em; margin-top: 0.1em; color: var(--gold); }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; gap: 2rem; } }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; gap: 1.5rem; } }
 
   .event-list { list-style: none; }
   .event-list li { display: flex; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--green-muted); align-items: baseline; }
@@ -122,145 +139,135 @@
   .btn::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
   .btn:hover { background: var(--gold); color: var(--green-deep); }
   .btn-primary { background: var(--gold); color: var(--green-deep); }
-  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-primary:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
   .btn-group { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.75rem; }
+
+  .featured-program { border: 1px solid var(--green-muted); padding: 2.5rem; margin: 2rem 0 0; }
+  @media (max-width: 640px) { .featured-program { padding: 1.75rem 1.5rem; } }
 
   .donate-section { background: var(--green-mid); border: 1px solid var(--green-muted); padding: 3rem; text-align: center; position: relative; overflow: hidden; }
   .donate-amount { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); display: block; margin: 1rem 0 0.5rem; }
   .donate-progress { width: 100%; max-width: 400px; margin: 1.25rem auto; height: 4px; background: var(--green-muted); }
   .donate-progress-fill { height: 100%; background: linear-gradient(to right, var(--gold-dim), var(--gold)); width: 0%; transition: width 1s ease; }
-  .donate-progress-label { display: flex; justify-content: space-between; ng�-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem; font-family: 'Cinzel', serif; }
+  .donate-progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem; font-family: 'Cinzel', serif; }
 
   footer { padding: 3rem 0; text-align: center; }
   .footer-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 1.25rem; }
-  .footer-links { display: flex; justify-content: center; gap: 2rem; }
-  .footer-links a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
+  .footer-links { display: flex; justify-content: center; gap: 2.5rem; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  @media (max-width: 640px) { .footer-links { gap: 1.5rem; } .footer-links a { font-size: 0.72rem; } }
 
   .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
-  @media (max-width: 640px) { .page-wrap { padding: 0 1.25rem; } .donate-section { padding: 2rem 1.5rem; } nav { gap: 1.5rem; } }
+  @media (max-width: 640px) { .page-wrap { padding: 0 1.25rem; } .donate-section { padding: 2rem 1.5rem; } }
 </style>
 </head>
 <body>
-
+<nav>
+<a href="#about">About</a>
+<a href="#house">Avalon House</a>
+<a href="#programs">Programming</a>
+<a href="#support">Support</a>
+</nav>
 <div class="page-wrap">
-  <nav>
-    <a href="#about">About</a>
-    <a href="#house">Avalon House</a>
-    <a href="#programs">Programs</a>
-    <a href="#support">Support</a>
-  </nav>
+<header class="masthead fade-in">
+<img alt="The Avalon Institute" height="96" src="logo.png" style="display:block;margin:0 auto 1.25rem;border-radius:50%" width="96"/>
+<h1 data-edit-id="masthead-h1">The <span>Avalon</span> Institute</h1>
+<p class="masthead-sub" data-edit-id="masthead-sub">Avalon is dedicated to creating the intimacy necessary for the collective pursuit of truth.</p>
+</header>
+<div class="rule-echelon fade-in"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
 
-  <header class="masthead fade-in">
-    <div class="masthead-label">San Francisco · Est. 2024</div>
-    <div class="ornament-crow" style="margin-bottom:1.5rem">
-      <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="fill:var(--gold);opacity:0.75">
-        <path d="M50 18 C44 18 38 22 36 28 C33 26 28 27 26 30 C24 33 26 37 29 38 C26 40 24 44 26 47 C28 50 32 51 35 50 C34 54 35 59 38 62 C36 65 35 70 37 73 C40 77 46 76 48 73 C49 76 52 78 55 77 C58 76 59 73 58 70 C61 72 65 71 66 68 C67 65 65 62 62 61 C65 59 67 55 65 52 C63 49 59 48 56 50 C57 46 56 41 53 38 C57 37 61 33 60 29 C59 25 54 22 50 18 Z"/>
-        <circle cx="47" cy="28" r="2.5" fill="#0e1a14"/>
-        <circle cx="47" cy="28" r="1" fill="#c9a84c" opacity="0.8"/>
-      </svg>
-    </div>
-    <h1>The <span>Avalon</span> Institute</h1>
-    <p class="masthead-sub">Dedicated to the conditions for enduring thought and art</p>
-  </header>
-
-  <div class="rule-double fade-in"><span class="rule-gold"></span><span class="rule-gold"></span></div>
-
-  <div class="hero fade-in">
-    <p class="hero-lede">One of the very few rooms in America where people who normally exist to each other as caricatures on the internet <em>actually sit at the same table.</em></p>
-    <div class="btn-group" style="justify-content:center">
-      <a href="#support" class="btn btn-primary">Support Avalon</a>
-      <a href="#house" class="btn">Upcoming Events</a>
-    </div>
-  </div>
-
-  <span class="rule-gold fade-in"></span>
-
-  <section id="about" class="fade-in">
-    <div class="section-header"><span class="section-label">The Problem We Exist to Address</span><h2>A misallocation of attention and talent</h2></div>
-    <p class="drop-cap">There is a massive misallocation of attention and talent in our culture. The people who might drive a real revival of serious thought in our time—essayists, historians, philosophers, poets, cross-disciplinary minds—are scattered, isolated, and underdeveloped. The institutions that should be finding and forming them mostly aren't.</p>
-    <p>Universities still have real strengths, but many of their best students and junior scholars experience them as more about bureaucracy, politics, and metrics than about understanding. Outside universities, would-be thinkers try to assemble an intellectual life from Twitter, Substack, podcasts, and Discord.</p>
-    <div class="pull-quote"><p >Historically, when a civilization changes its mind about itself, it happens because <em>scenes</em> form�dense, cross-cutting networks of people who argue, read, fall out, and slowly produce new common sense.</p><cite>The Avalon Institute</cite></div>
-    <p>The French Enlightenment had its salons. The 19th-century Germans had Jena and Berlin. If existing universities cannot play that role now, we need an institution that will.</p>
-  </section>
-
-  <div class="ornament-laurel fade-in">
-    <svg width="80" height="20" viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 C5 5, 10 3, 15 8 C10 8, 7 10, 5 13 C8 11, 12 10, 15 12 C12 9, 8 8, 5 10" opacity="0.7"/><path d="M15 8 C18 4, 22 3, 25 7 C21 7, 18 9, 17 12 C19 10, 22 9, 25 11 C22 8, 19 8, 17 10" opacity="0.6"/><path d="M25 7 C28 3, 32 3, 33 7 C30 7, 28 9, 27 12 C29 10, 31 9, 33 11 C31 8, 29 8, 28 10" opacity="0.5"/></svg>
-    <span style="color:var(--gold);font-family:'Cinzel',serif;font-size:0.6rem">⦞</span>
-    <svg width="80" height="20" viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg" style="transform:scaleX(-1)"><path d="M0 10 C5 5, 10 3, 15 8 C10 8, 7 10, 5 13 C8 11, 12 10, 15 12 C12 9, 8 8, 5 10" opacity="0.7"/><path d="M15 8 C18 4, 22 3, 25 7 C21 7, 18 9, 17 12 C19 10, 22 9, 25 11 C22 8, 19 8, 17 10" opacity="0.6"/><path d="M25 7 C28 3, 32 3, 33 7 C30 7, 28 9, 27 12 C29 10, 31 9, 33 11 C31 8, 29 8, 28 10" opacity="0.5"/></svg>
-  </div>
-
-  <section id="house" class="fade-in">
-    <div class="section-header"><span class="section-label">Our San Francisco Venue</span><h2>Avalon House</h2></div>
-    <p>Our house in Twin Peaks has become a continuous, living salon. Since September 2024 we have hosted poetry readings, string quartets, performances of Platonic dialogues, evenings devoted to Nietzsche and Hildegard von Bingen, salons that move freely between genetics and Augustine, AI alignment and Euripides. Food, wine, a piano; people sitting on the floor arguing about texts at midnight.</p>
-    <p>For a certain slice of the culture, Avalon is already <em>where you go</em> when you are in San Francisco and want to know what the live currents of thought actually are this year.</p>
-    <div style="margin:2.5rem 0">
-      <h3>Upcoming Programming</h3>
-      <ul class="event-list">
-        <li><span class="event-date">May</span><div><div class="event-title">Plato Night</div><div class="event-type">Acted Platonic Dialogue · Avalon House</div></div></li>
-        <li><span class="event-date">May</span><div><div class="event-title">Close Reading Group</div><div class="event-type">Seminar Members &amp; Guests</div></div></li>
-        <li><span class="event-date">June</span><div><div class="event-title">Artistic Salon</div><div class="event-type">Open to Community</div></div></li>
-        <li><span class="event-date">TBA</span><div><div class="event-title">Seminar Weekend</div><div class="event-type">Residential · Invitation</div></div></li>
-      </ul>
-    </div>
-    <p style="color:var(--text-dim);font-size:0.9rem;font-style:italic">We are open to co-hosting events with organisations that share a deep intellectual or cultural focus. <a href="mailto:hello@avalonhouse.org" style="color:var(--gold-dim);text-decoration:none">Reach out →</a></p>
-  </section>
-
-  <span class="rule-gold fade-in"></span>
-
-  <section id="programs" class="fade-in">
-    <div class="section-header"><span class="section-label">What We Are Building</span><h2>Programs &amp; Initiatives</h2></div>
-    <div class="grid-2" style="margin-top:2em">
-      <div><h3>Avalon Residency</h3><p>A residency at Avalon House for exceptional young humanists and independent scholars operating above the ambient level of existing institutions.</p></div>
-      <div><h3>Field Building</h3><p>We create events and connections suited to a culture's self-development, serving as a convening hub for aligned organisations.</p></div>
-      <div><h3>The Avalon Fellowship</h3><p>An inaugural cohort programme providing institutional resources, mentorship, and peer environment for those who have yet to find their place in the wider world.</p></div>
-      <div><h3>Publication &amp; Media</h3><p>A print-only or subscription-publication. Commissions for new works. Syndicating Avalon thought with aligned media organisations.</p></div>
-    </div>
-  </section>
-
-  <div class="ornament-laurel fade-in">
-    <svg width="80" height="20" viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 C5 5, 10 3, 15 8 C10 8, 7 10, 5 13 C8 11, 12 10, 15 12 C12 9, 8 8, 5 10" opacity="0.7"/><path d="M15 8 C18 4, 22 3, 25 7 C21 7, 18 9, 17 12 C19 10, 22 9, 25 11 C22 8, 19 8, 17 10" opacity="0.6"/><path d="M25 7 C28 3, 32 3, 33 7 C30 7, 28 9, 27 12 C29 10, 31 9, 33 11 C31 8, 29 8, 28 10" opacity="0.5"/></svg>
-    <span style="color:var(--gold);font-family:'Cinzel',serif;font-size:0.6rem">⦞</span>
-    <svg width="80" height="20" viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg" style="transform:scaleX(-1)"><path d="M0 10 C5 5, 10 3, 15 8 C10 8, 7 10, 5 13 C8 11, 12 10, 15 12 C12 9, 8 8, 5 10" opacity="0.7"/><path d="M15 8 C18 4, 22 3, 25 7 C21 7, 18 9, 17 12 C19 10, 22 9, 25 11 C22 8, 19 8, 17 10" opacity="0.6"/><path d="M25 7 C28 3, 32 3, 33 7 C30 7, 28 9, 27 12 C29 10, 31 9, 33 11 C31 8, 29 8, 28 10" opacity="0.5"/></svg>
-  </div>
-
-  <section id="support" class="fade-in">
-    <div class="section-header"><span class="section-label">Support the Work</span><h2>Why this might be worth funding</h2></div>
-    <p>Avalon right now is powerful and fragile at the same time. It is already, in effect, the super-salon of San Francisco—a node where people with outsized influence over culture and politics quietly converge.</p>
-    <p>We are seeking roughly $200,000 to underwrite a year of this work: keeping the house viable, paying staff, running residencies and micro-grants, and documenting what happens here.</p>
-    <div class="donate-section fade-in" style="margin:2.5rem 0">
-      <span class="section-label">2025 Operating Fund</span>
-      <span class="donate-amount">$200,000</span>
-      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0">Target for Year One operations</p>
-      <div class="donate-progress"><div class="donate-progress-fill" id="progressBar"></div></div>
-      <div class="donate-progress-label"><span>$54,000 raised</span><span>27%</span></div>
-      <div class="btn-group" style="justify-content:center;margin-top:2em">
-        <a href="mailto:hello@avalonhouse.org" class="btn btn-primary">Donate</a>
-        <a href="mailto:hello@avalonhouse.org" class="btn">Get in Touch</a>
-      </div>
-    </div>
-    <p style="font-style:italic;color:var(--text-dim);font-size:0.9rem">The Avalon Institute is a fiscally sponsored project of the Mars Review of Books Foundation, a 501(c)(3) nonprofit (EIN 92-1553880).</p>
-  </section>
-
-  <div class="rule-double fade-in" style="margin-top:1rem"><span class="rule-gold"></span><span class="rule-gold"></span></div>
-
-  <footer class="fade-in">
-    <div class="ornament-crow" style="margin-bottom:1.5rem;opacity:0.4">
-      <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="fill:var(--gold)">
-        <path d="M50 18 C44 18 38 22 36 28 C33 26 28 27 26 30 C24 33 26 37 29 38 C26 40 24 44 26 47 C28 50 32 51 35 50 C34 54 35 59 38 62 C36 65 35 70 37 73 C40 77 46 76 48 73 C49 76 52 78 55 77 C58 76 59 73 58 70 C61 72 65 71 66 68 C67 65 65 62 62 61 C65 59 67 55 65 52 C63 49 59 48 56 50 C57 46 56 41 53 38 C57 37 61 33 60 29 C59 25 54 22 50 18 Z"/>
-      </svg>
-    </div>
-    <div class="footer-text">The Avalon Institute · Twin Peaks, San Francisco<br>A fiscally sponsored project of the Mars Review of Books Foundation, 501(c)(3) · EIN 92-1553880</div>
-    <div class="footer-links">
-      <a href="https://x.com/AvalonInst">X / Twitter</a>
-      <a href="mailto:hello@avalonhouse.org">Contact</a>
-      <a href="#support">Donate</a>
-    </div>
-  </footer>
+<div class="intro-frame fade-in">
+<p data-edit-id="splash-p2">Avalon continuously experiments with formats that cultivate and communicate passion, building the network and infrastructure needed to found a new home for the revival of art and thought.</p>
 </div>
 
+<div class="collage fade-in">
+  <figure><img src="photos/43-ides-of-march.jpg" alt="The Ides of March"><figcaption data-edit-id="collage-cap-1">The Ides of March · March 2026</figcaption></figure>
+  <figure><img src="photos/40-guthries-concert.jpg" alt="The Guthries Concert"><figcaption data-edit-id="collage-cap-2">The Guthries Concert · January 2026</figcaption></figure>
+  <figure><img src="photos/32-private-avalon-launch.jpg" alt="Private Avalon Launch Party"><figcaption data-edit-id="collage-cap-3">Private Avalon Launch · August 2025</figcaption></figure>
+  <figure><img src="photos/30-rosenbauer-complexity.jpg" alt="Charles Rosenbauer — NP and Complexity"><figcaption data-edit-id="collage-cap-4">Charles Rosenbauer · NP and Complexity · July 2025</figcaption></figure>
+  <figure><img src="photos/22-string-quartet.jpg" alt="String Quartet"><figcaption data-edit-id="collage-cap-5">String Quartet · July 2025</figcaption></figure>
+  <figure><img src="photos/21-plato-protagoras.jpg" alt="Plato for the People — Protagoras"><figcaption data-edit-id="collage-cap-6">Plato for the People · Protagoras · November 2025</figcaption></figure>
+  <figure><img src="photos/16-louis-sagnieres.jpg" alt="Louis Sagnières — The Law of Terminal Distortion"><figcaption data-edit-id="collage-cap-7">Louis Sagnières · The Law of Terminal Distortion · April 2026</figcaption></figure>
+  <figure><img src="photos/13-plato-gorgias.jpg" alt="Plato for the People — Gorgias"><figcaption data-edit-id="collage-cap-8">Plato for the People · Gorgias · November 2024</figcaption></figure>
+  <figure><img src="photos/14-dot-com-dionysus.jpg" alt="Dot Com Dionysus"><figcaption data-edit-id="collage-cap-9">Dot Com Dionysus · March 2026</figcaption></figure>
+  <figure><img src="photos/02-palladium-party.jpg" alt="Palladium Party"><figcaption data-edit-id="collage-cap-10">Palladium Party · September 2024</figcaption></figure>
+</div>
+
+<section class="fade-in" id="about">
+<p data-edit-id="about-p-2">As institutional decay and atomization degrade the infrastructure meant to enable the next generation of thought and art, new contexts must be created where they can find the fellowships they need to build a future.&nbsp; Avalon's purpose is to provide them.</p>
+<p data-edit-id="about-p-house"><span id="house" style="color: rgb(154, 106, 31); font-variant-caps: small-caps; font-weight: 600; letter-spacing: 0.72px;">Avalon House&nbsp;</span>is our initial foundation: a home in Twin Peaks for the open-ended pursuit of truth and the production of events and cultural life. Since September 2024, it has hosted poetry readings, string quartets, acted Platonic dialogues, lectures, weekend seminars, symposia, and brought together scholars from around the world.</p>
+<p data-edit-id="about-p-institute">The Avalon Institute builds the capacity needed to draw enduring work into the world. Through technical and media support, publications, and the cultivation of a network, Avalon turns fellowship into a foundation. We work to maintain an ecology of collaboration and exchange where many projects can carve out a home.</p>
+<p data-edit-id="house-p-3" style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-top:1.5rem">We co-host with organisations that share a deep intellectual or cultural focus. <a href="mailto:hello@avalonhouse.org" style="color:var(--gold-dim);text-decoration:none">Reach out →</a></p>
+</section>
+<div class="btn-group fade-in" style="justify-content:center;margin:2.5rem 0">
+<a class="btn btn-primary" href="mailto:hello@avalonhouse.org?subject=Avalon%20Donation">Donate</a>
+<a class="btn" href="mailto:hello@avalonhouse.org?subject=Avalon%20Open%20Mic">Visit</a>
+<a class="btn" href="mailto:hello@avalonhouse.org?subject=Avalon%20Inquiry">Contact</a>
+</div>
+<section class="fade-in" id="programs">
+<div class="section-header"><span class="section-title" data-edit-id="programs-label-programming">Programming</span></div>
+<div style="display:flex;align-items:center;gap:1.25rem;margin:1.5rem 0 1.5rem">
+<span class="section-label" data-edit-id="programs-label-ongoing" style="margin:0;flex-shrink:0">PAST · INCLUDING</span>
+<span class="rule-gold" style="flex:1"></span>
+</div>
+<div style="margin-bottom:2rem">
+<h3 data-edit-id="programs-h3">Arts</h3>
+<p data-edit-id="programs-p">The Guthries · Plato for the People · Dot-Com Dionysus · Schubertiade&nbsp;·&nbsp; Caroling, Shanties, Singing&nbsp; ·&nbsp; NYE Poetry Competition · Hallong Media</p>
+</div>
+<div style="margin-bottom:2rem">
+<h3 data-edit-id="programs-h3-lectures">Lectures</h3>
+<p data-edit-id="programs-p-lectures">Children of Monsters &amp; Elves — Razib Khan · NP and Complexity — Charles Rosenbauer <br>· The Law of Terminal Distortion — Louis Sagnières · Conditions for Intellectual Culture — Geoff Anders</p>
+</div>
+<div style="margin-bottom:2rem">
+<h3 data-edit-id="programs-h3-2">Seminars &amp; Reading Groups</h3>
+<p data-edit-id="programs-p-2">La Rochefoucauld · Early Psychoanalysis ·&nbsp;Antony and Cleopatra ·&nbsp;Konrad Lorenz · Nietzsche and Zhuangzhi ·<br>Neural Annealing · Post-War Film</p>
+</div>
+<div>
+<h3 data-edit-id="programs-h3-3">Symposia</h3>
+<p data-edit-id="programs-p-3">Hildegard Von Bingen ·&nbsp;Nietzsche ·&nbsp;Napoleon · Shakespeare</p>
+</div>
+<div style="display:flex;align-items:center;gap:1.25rem;margin:3rem 0 1.5rem">
+<span class="section-label" data-edit-id="programs-label-upcoming" style="margin:0;flex-shrink:0">Upcoming</span>
+<span class="rule-gold" style="flex:1"></span>
+</div>
+<div class="featured-program">
+<h3 data-edit-id="programs-conferences-h3" style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:500;color:var(--gold);text-align:center;text-transform:none;letter-spacing:0.06em;margin:0 0 1.4rem">Avalon Conferences</h3>
+<p data-edit-id="programs-conferences-p">We're building an apparatus to scale what we do across fields. The leading events in many disciplines have grown listless; we will run the conferences that ought to be happening, working with scholars and patrons across institutional lines. Each event brings out network closer to something capable of changing intellectual culture.</p>
+</div>
+<div class="grid-3" style="margin-top:2.5rem;text-align:center">
+<div><h3 data-edit-id="programs-h3-press">Avalon Press</h3></div>
+<div><h3 data-edit-id="programs-h3-continuity">Conversations on Continuity</h3></div>
+<div><h3 data-edit-id="programs-h3-montreal">Avalon Montreal</h3></div>
+</div>
+</section>
+<span class="rule-gold fade-in"></span>
+<section class="fade-in" id="support">
+<div class="section-header"><span class="section-label" data-edit-id="support-label-support-the-work">Support the Work</span><h2 data-edit-id="support-h2">What your money funds</h2></div>
+<p data-edit-id="support-p">Avalon is seeking the funding required to make a decisive shift in San Francisco culture. Your support will create the fellowships, staff, classes, and institutional context which will help a new ecology come into existence.</p>
+<div class="donate-section fade-in" style="margin:2.5rem 0">
+<span class="section-label" data-edit-id="support-label-2027+-operating-fund">Founding Raise</span>
+<span class="donate-amount" data-edit-id="support-amount">$1,000,000</span>
+<div class="donate-progress"><div class="donate-progress-fill" id="progressBar"></div></div>
+<div class="donate-progress-label"><span>$54,000 raised</span><span>5.4%</span></div>
+<div class="btn-group" style="justify-content:center;margin-top:2em">
+<a class="btn btn-primary" href="mailto:hello@avalonhouse.org">Donate</a>
+<a class="btn" href="mailto:hello@avalonhouse.org">Get in Touch</a>
+</div>
+</div>
+</section>
+<div class="rule-echelon fade-in" style="margin-top:1rem"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
+<footer class="fade-in">
+<div class="footer-text" data-edit-id="footer-text">The Avalon Institute · Twin Peaks, San Francisco<br/>A fiscally sponsored project of the Mars Review of Books Foundation, 501(c)(3) · EIN 92-1553880</div>
+<div class="footer-links">
+<a href="https://x.com/AvalonInst">X / Twitter</a>
+<a href="mailto:hello@avalonhouse.org">Contact</a>
+<a href="#support">Donate</a>
+</div>
+</footer>
+</div>
 <script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), 80); obs.unobserve(e.target); } });
@@ -268,7 +275,147 @@
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   const bar = document.getElementById('progressBar');
   new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { bar.style.width = '27%'; }
+    if (entries[0].isIntersecting) { bar.style.width = '5.4%'; }
   }).observe(bar);
+</script>
+<script>
+/* Inline prose editor — only activates when the URL contains ?edit. Inert otherwise.
+   Edits prose elements tagged with data-edit-id. On save, sends only the changed
+   elements as patches; the server rewrites just those elements in place, leaving
+   CSS, scripts, structure, and any untagged content byte-for-byte unchanged. */
+(function() {
+  if (!new URLSearchParams(location.search).has('edit')) return;
+
+  let savePath = location.pathname;
+  if (savePath.endsWith('/')) savePath += 'index.html';
+  if (savePath.startsWith('/')) savePath = savePath.slice(1);
+
+  const elements = new Map();   // id -> { el, savedInner }
+  const dirty = new Set();      // ids with unsaved changes
+
+  function init() {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    const pb = document.getElementById('progressBar');
+    if (pb) pb.style.width = '5.4%';
+
+    document.querySelectorAll('[data-edit-id]').forEach(el => {
+      elements.set(el.getAttribute('data-edit-id'), { el, savedInner: el.innerHTML });
+      el.contentEditable = 'true';
+    });
+
+    injectStyles();
+    injectBar();
+
+    document.addEventListener('input', e => {
+      const tagged = e.target.closest && e.target.closest('[data-edit-id]');
+      if (!tagged) return;
+      const id = tagged.getAttribute('data-edit-id');
+      const entry = elements.get(id);
+      if (!entry) return;
+      if (tagged.innerHTML !== entry.savedInner) dirty.add(id);
+      else dirty.delete(id);
+      updateStatus();
+    });
+
+    window.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); save(); }
+    });
+
+    window.addEventListener('beforeunload', e => {
+      if (dirty.size) { e.preventDefault(); e.returnValue = ''; }
+    });
+  }
+
+  function injectStyles() {
+    const style = document.createElement('style');
+    style.id = 'edit-styles';
+    style.textContent = `
+      [data-edit-id][contenteditable="true"] { cursor: text; }
+      [data-edit-id][contenteditable="true"]:hover { outline: 1px dashed var(--gold-dim); outline-offset: 3px; }
+      [data-edit-id][contenteditable="true"]:focus { outline: 1px solid var(--gold); outline-offset: 3px; background: rgba(216,154,58,0.05); }
+      #edit-bar { position: fixed; bottom: 1rem; right: 1rem; z-index: 9999;
+        display: flex; gap: 0.6rem; align-items: center;
+        background: var(--green-mid); border: 1px solid var(--green-muted);
+        padding: 0.4rem 0.5rem 0.4rem 1rem;
+        font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; }
+      #edit-status { color: var(--text-dim); text-transform: uppercase; min-width: 6rem; }
+      #edit-status.dirty { color: var(--gold); }
+      #edit-status.saving { color: var(--gold); }
+      #edit-status.error { color: #d88; }
+      #edit-save { padding: 0.5rem 1rem; border: 1px solid var(--gold);
+        background: transparent; color: var(--gold);
+        font: inherit; cursor: pointer; text-transform: uppercase; letter-spacing: inherit; }
+      #edit-save:hover:not(:disabled) { background: var(--gold); color: var(--green-deep); }
+      #edit-save:disabled { opacity: 0.5; cursor: default; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function injectBar() {
+    const bar = document.createElement('div');
+    bar.id = 'edit-bar';
+    bar.innerHTML = '<span id="edit-status">saved</span><button id="edit-save">Save</button>';
+    document.body.appendChild(bar);
+    document.getElementById('edit-save').onclick = save;
+  }
+
+  function updateStatus() {
+    const s = document.getElementById('edit-status');
+    if (!s) return;
+    if (dirty.size) {
+      s.className = 'dirty';
+      s.textContent = `${dirty.size} unsaved`;
+    } else {
+      s.className = '';
+      s.textContent = 'saved';
+    }
+  }
+
+  async function save() {
+    if (!dirty.size) return;
+    const status = document.getElementById('edit-status');
+    const btn = document.getElementById('edit-save');
+    btn.disabled = true;
+    status.className = 'saving'; status.textContent = 'saving…';
+
+    const patches = [];
+    for (const id of dirty) {
+      const entry = elements.get(id);
+      if (entry) patches.push({ id, html: entry.el.innerHTML });
+    }
+
+    try {
+      const res = await fetch('/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: savePath, patches })
+      });
+      if (!res.ok) throw new Error((await res.text()) || ('HTTP ' + res.status));
+      const result = await res.json();
+      // Update saved snapshots only for ids the server actually applied.
+      const notFound = new Set(result.not_found || []);
+      for (const id of Array.from(dirty)) {
+        if (notFound.has(id)) continue;
+        const entry = elements.get(id);
+        if (entry) entry.savedInner = entry.el.innerHTML;
+        dirty.delete(id);
+      }
+      updateStatus();
+      if (notFound.size) {
+        status.className = 'error';
+        status.textContent = `${notFound.size} unmatched`;
+        console.warn('Server could not find these data-edit-ids:', [...notFound]);
+      }
+    } catch (err) {
+      status.className = 'error'; status.textContent = 'error';
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
 </script>
 </body></html>
