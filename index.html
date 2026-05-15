@@ -156,7 +156,7 @@
   .collage figure:hover figcaption { opacity: 1; transform: translateY(0); }
   @media (max-width: 640px) { .collage { grid-template-columns: repeat(2, 1fr); gap: 0.3rem; } }
   .section-header { margin-bottom: 2rem; }
-  .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
   .section-title { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
   h2 { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 400; letter-spacing: 0.05em; color: var(--cream); line-height: 1.3; }
   h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.75rem; text-transform: uppercase; }
@@ -210,8 +210,21 @@
   .tooltip-wrap:hover::after,
   .tooltip-wrap:focus-within::after { opacity: 1; }
 
-  .featured-program { border: 1px solid var(--green-muted); padding: 2.5rem; margin: 2rem 0 0; }
-  @media (max-width: 640px) { .featured-program { padding: 1.75rem 1.5rem; } }
+  .featured-program { padding: 1rem 0 0; margin: 0; }
+
+  /* Tasteful corner brackets to draw a sub-section together — echoes page-level brackets */
+  .frame-brackets { position: relative; padding: 2.25rem 1.75rem 2rem; }
+  .frame-brackets::before, .frame-brackets::after {
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    border-color: var(--gold-dim);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .frame-brackets::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  .frame-brackets::after { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+  @media (max-width: 640px) { .frame-brackets { padding: 1.75rem 1.25rem 1.5rem; } }
 
   .donate-section { background: var(--green-mid); border: 1px solid var(--green-muted); padding: 3rem; text-align: center; position: relative; overflow: hidden; }
   .donate-amount { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); display: block; margin: 1rem 0 0.5rem; }
@@ -302,6 +315,7 @@
 <span class="section-label" data-edit-id="programs-label-upcoming" style="margin:0;flex-shrink:0">Upcoming</span>
 <span class="rule-gold" style="flex:1"></span>
 </div>
+<div class="frame-brackets">
 <div class="featured-program">
 <h3 data-edit-id="programs-conferences-h3" style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:500;color:var(--gold);text-align:center;text-transform:none;letter-spacing:0.06em;margin:0 0 1.4rem">Avalon Conferences</h3>
 <p data-edit-id="programs-conferences-p">We're building an apparatus to scale what we do across fields. The leading events in many disciplines have grown listless; we will run the conferences that ought to be happening, working with scholars and patrons across institutional lines. Each event brings out network closer to something capable of changing intellectual culture.</p>
@@ -310,6 +324,7 @@
 <div><h3 data-edit-id="programs-h3-press">Avalon Press</h3></div>
 <div><h3 data-edit-id="programs-h3-continuity">Conversations on Continuity</h3></div>
 <div><h3 data-edit-id="programs-h3-montreal">Avalon Montreal</h3></div>
+</div>
 </div>
 </section>
 <span class="rule-gold fade-in"></span>
